@@ -1,0 +1,116 @@
+body
+{
+    background-image: url(image/back.jpg);
+    padding: 0;
+    margin: 0 ;
+}
+#title
+{
+    text-align: center;
+}
+.text
+{
+    font-size: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+    line-height: 30px;
+}
+#verdana
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    color: rgb(211, 139, 23);
+    font-style: italic;
+}
+.navbar
+{
+    background: #ffc66a;
+    width: 100%;
+    height: 7vh;
+    list-style-type: none;
+    padding: 0 0 0 5vw;
+    display: flex;
+    align-items: center;
+    margin: 0 ;
+}
+.navbar li a
+{
+    color: rgb(184, 127, 2);
+    text-decoration: none;
+    font-size: large !important;
+    text-align: center;
+    padding: 1.75vh 1.025vh;
+    font-weight:600;
+}
+.content
+{
+    margin: 20px;
+}
+
+table 
+{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+th, td 
+{
+    padding: 10px;
+    border: 2px solid #000000;
+    text-align: center;
+}
+th 
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+thead
+{
+    background-color: #c229b2;
+}
+#col1
+{
+    background-color: lightpink;
+}
+#col2
+{
+    background-color: lightcoral;
+}
+/*Контекстний*/
+table img
+{
+    width: 200px;
+    height: 200px;
+}
+ul
+{
+    color: #bd3e0f;
+}
+
+ol
+{
+    color: #c57a00;
+    font-size: 20px;
+}
+
+dl
+{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+dt
+{
+    font-style: italic;
+}
+dd
+{
+    color: #c57a00;
+}
+
+p + iframe
+{
+    width: 50%;
+    margin: 0vh 50vh ;
+}
+.content > a
+{
+    color: rgb(255, 0, 60);
+}
