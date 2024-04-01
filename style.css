@@ -105,12 +105,56 @@ dd
     color: #c57a00;
 }
 
-p + iframe
+/* p + iframe 
 {
     width: 50%;
     margin: 0vh 50vh ;
-}
+} */
 .content > a
 {
     color: rgb(255, 0, 60);
+}
+
+#span-color
+{
+    color: #bd3e0f;
+}
+.link-id1
+{
+position: absolute;
+}
+#floating-iframe
+{
+    width: 50%;
+    float: right;
+}
+
+.navbar a:hover
+{
+    color: rgb(91, 62, 0);
+}
+.navbar a:active
+{
+    color:rgb(106, 96, 69);
+}
+.link-id1:link
+{
+    color: #000000;
+    
+}
+.link-id1:visited
+{
+    color:rgb(0, 102, 255);
+}
+.content ol li:first-child
+{
+    color: #601f07;
+}
+.content ol li::after
+{
+    content: ' \22C6';
+}
+.content ol li::before
+{
+    content: '\25AC';
 }
