@@ -21,7 +21,7 @@
         <li><a href="ForTheСhildrens.html" >Для дитячої</a></li>
     </ul>
     <div class="content">
-      <a class="link-id1" href="#1">Меблі в інтернет-магазині</a>
+      <a class="link-id1" href="#11">Меблі в інтернет-магазині</a>
       <div class="text">
           <h1 id="title">Головна сторінка</h1>
           <p style="font-size: 25px;"><b>Меблі</b> є незмінним атрибутом будь-якого приміщення. Саме вони задають йому правильну атмосферу, роблячи простір затишним 
@@ -98,7 +98,36 @@
           </tbody>
           
         </table>
-      <a  id="1" href="https://rozetka.com.ua/ua/mebel/c152458/">Меблі в інтернет-магазині</a>
+        <a id="11" href="https://rozetka.com.ua/ua/mebel/c152458/">Меблі в інтернет-магазині</a>
     </div>
+    <script>
+      alert("Ласкаво просимо на нашу головну сторінку!");
+      let userName = prompt("Будь ласка, введіть ваше ім'я");
+      if (userName != null && userName != "") 
+      {
+        alert("Привіт, " + userName + "! Ласкаво просимо на наш сайт!");
+      }
+      let result = confirm("Чи подобається вам наш сайт?");
+      if (result == true)
+      {
+        alert("Дякуємо за позитивну відповідь!")
+      }
+      else
+      {
+        alert("Дякуємо за відповідь!")
+      }
+      
+      document.body.style.backgroundColor = 'white';
+      setTimeout(() => document.body.style.backgroundColor = '', 30000);
+
+      let anchorElement = document.getElementById('11');
+      anchorElement.innerText = "Каталог меблів в інтернет магазині";
+
+      let thElements = document.querySelectorAll('th');
+      thElements.forEach(elem => {
+        elem.style.background= 'purple'
+      });
+      
+    </script>    
   </body>
 </html>
