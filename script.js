@@ -22,7 +22,7 @@ function userDialog() {
 }
 
 // Функція виводу інформації про розробника
-function showDeveloperInfo(lastName, firstName, position = "Студент") {
+function showDeveloperInfo(lastName, firstName, position) {
     alert("Прізвище: " + lastName + "\nІм'я: " + firstName + "\nПосада: " + position);
 }
 
@@ -37,8 +37,9 @@ function compareStrings(str1, str2) {
     }
 }
 
-showDeveloperInfo("Філь", "Вадим");
-compareStrings("Студент", "Привіт");
-userDialog();
+// showDeveloperInfo("Філь", "Вадим");
+// compareStrings("Студент", "Привіт");
+// userDialog();
+
 
 

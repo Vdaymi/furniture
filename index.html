@@ -33,15 +33,15 @@
               створення ідеального простору для вас.</p>
           <p><b>Кухня</b> – серце будинку, і ми пропонуємо широкий вибір кухонних гарнітурів, обідніх столів, стільців та інших необхідних аксесуарів. 
               Наші меблі поєднують в собі елегантний дизайн і практичність, створюючи ідеальну обстановку для приготування їжі та сімейних обідів.</p>
-          <iframe id="floating-iframe" name = "frame" src="ForTheKitchen.html"></iframe>    
+          <iframe id="floating-iframe" name = "frame" src="ForTheKitchen.html" ></iframe>    
           <p><b>Дитяча кімната</b> – це місце творчості та розвитку. У нашому каталозі ви знайдете яскраві та функціональні меблі для дітей,
               які враховують потреби вашої малечі. Ліжка, столи, шафи та ігрові зони – ми створюємо простір для щасливого і здорового розвитку вашого малюка.</p>   
-          <p id="verdana">Обирайте якість, стиль і комфорт разом з нашим каталогом меблів. Зробіть свій дім ще затишнішим і 
+          <p id="verdana" onclick="changeColor()">Обирайте якість, стиль і комфорт разом з нашим каталогом меблів. Зробіть свій дім ще затишнішим і 
               функціональнішим з нашою допомогою.</p>    
           <br>
           
       </div>
-      <table id="3">
+      <table id="furniture-table">
           <colgroup>
             <col id="col1">
             <col id="col2">
@@ -58,7 +58,7 @@
           </thead>
           <tbody>
             <tr>
-              <td rowspan="2">Спальня</td>
+              <td rowspan="2">Спальня </td>
               <td>Ліжко</td>
               <td>Розмір: Queen<br>Матеріал: Дерево</td>
               <td >$500</td>
@@ -97,36 +97,92 @@
             </tr>
           </tbody>
           
-        </table>
+        </table >
+        <div id="menu">
+          <button class="filterButton" data-filter="Спальня">Спальня</button>
+          <button class="filterButton" data-filter="Кухня">Кухня</button>
+          <button class="filterButton" data-filter="Дитяча кімната">Дитяча кімната</button>
+          <button class="filterButton" data-filter="Усі">Усі</button>
+        </div>
         <a id="11" href="https://rozetka.com.ua/ua/mebel/c152458/">Меблі в інтернет-магазині</a>
     </div>
     <script>
-      alert("Ласкаво просимо на нашу головну сторінку!");
-      let userName = prompt("Будь ласка, введіть ваше ім'я");
-      if (userName != null && userName != "") 
-      {
-        alert("Привіт, " + userName + "! Ласкаво просимо на наш сайт!");
+      class FurnitureFilter {
+        constructor(table) {
+            this._table = table;
+            this._buttons = document.querySelectorAll('.filterButton');
+            this._buttons.forEach(button => {
+                button.addEventListener('click', this.filterTable.bind(this));
+            });
+        }
+
+        filterTable(event) {
+          const filter = event.target.dataset.filter;
+          const rows = this._table.querySelectorAll('tbody tr');
+          let category = '';
+          rows.forEach(row => {
+              const typeCell = row.querySelector('td:first-child');
+              const type = typeCell.textContent.trim();
+              if (typeCell.rowSpan > 1) {
+                  category = type;
+              }
+              if (filter === 'Усі' || category === filter) {
+                  row.style.display = '';
+              } else {
+                  row.style.display = 'none';
+              }
+          });
+        }
       }
-      let result = confirm("Чи подобається вам наш сайт?");
-      if (result == true)
-      {
-        alert("Дякуємо за позитивну відповідь!")
-      }
-      else
-      {
-        alert("Дякуємо за відповідь!")
-      }
+
+      new FurnitureFilter(document.getElementById('furniture-table'));
+
+
       
-      document.body.style.backgroundColor = 'white';
-      setTimeout(() => document.body.style.backgroundColor = '', 30000);
+      let tds = document.querySelectorAll('td');
+      
+      tds.forEach(elem => {
+      elem.onmouseenter = function(e) {
+      e.target.style.backgroundColor = 'rgb(198, 130, 241)';
+      };
+      elem.onmouseleave = function(e) {
+        e.target.style.backgroundColor = '';
+      }});
+      
+      changeColor = () => {
+        elem = document.getElementById('verdana');
+        elem.style.color = 'rgb(198, 130, 241)';
+      };
 
-      let anchorElement = document.getElementById('11');
-      anchorElement.innerText = "Каталог меблів в інтернет магазині";
 
-      let thElements = document.querySelectorAll('th');
-      thElements.forEach(elem => {
-        elem.style.background= 'purple'
-      });
+
+
+      // alert("Ласкаво просимо на нашу головну сторінку!");
+      // let userName = prompt("Будь ласка, введіть ваше ім'я");
+      // if (userName != null && userName != "") 
+      // {
+      //   alert("Привіт, " + userName + "! Ласкаво просимо на наш сайт!");
+      // }
+      // let result = confirm("Чи подобається вам наш сайт?");
+      // if (result == true)
+      // {
+      //   alert("Дякуємо за позитивну відповідь!")
+      // }
+      // else
+      // {
+      //   alert("Дякуємо за відповідь!")
+      // }
+      
+      // document.body.style.backgroundColor = 'white';
+      // setTimeout(() => document.body.style.backgroundColor = '', 30000);
+
+      // let anchorElement = document.getElementById('11');
+      // anchorElement.innerText = "Каталог меблів в інтернет магазині";
+
+      // let thElements = document.querySelectorAll('th');
+      // thElements.forEach(elem => {
+      //   elem.style.background= 'purple'
+      // });
       
     </script>    
   </body>
