@@ -18,13 +18,12 @@
     <div class="content">
         <a class="link-id1" href="index.html#11">Меблі в інтернет-магазині</a>
         <div class="text">
-        <h1 id="title">Меблі для спальні</h1>
-        <p style="font-size: 20px;">Одним із найважливіших приміщень у будь-якому домі вважається спальня. Тут людина не лише спить, а й відпочиває, 
-            проводячи більшу частину свого часу. Саме тому вибір якісного меблевого наповнення – дуже важливий процес, якому варто приділити 
-            належну увагу. Гарний гарнітур дозволить чудово відпочити після трудового дня, виспатися і зарядитися приємними емоціями 
-            на наступний день. У каталозі представлені винятково сучасні меблі для спальні, які приваблять вас не лише своєю естетичністю, 
-            але й відмінним функціоналом.</p>
-        </div>
+            <h1 id="title">Меблі для спальні</h1>
+            <p style="font-size: 20px;">Одним із найважливіших приміщень у будь-якому домі вважається спальня. Тут людина не лише спить, а й відпочиває, 
+                проводячи більшу частину свого часу. Саме тому вибір якісного меблевого наповнення – дуже важливий процес, якому варто приділити 
+                належну увагу. Гарний гарнітур дозволить чудово відпочити після трудового дня, виспатися і зарядитися приємними емоціями 
+                на наступний день. У каталозі представлені винятково сучасні меблі для спальні, які приваблять вас не лише своєю естетичністю, 
+                але й відмінним функціоналом.</p>
             <dl><b id = "caption">Найпопулярніші меблі для зберігання одягу</b>
                 <div id ='contentList'>
                     <dt>Шафа-купе</dt>
@@ -45,12 +44,74 @@
                         для зберігання інших речей, таких як сезонний одяг, взуття і аксесуари.</dd>
                 </div>
             </dl>
+        </div>
         <script>
-            document.write('<br><br><a href="image/spalnya2.jpg" target="_blank"> <img width="320px" height="213.5px" src="image/spalnya2.jpg"></a>')
+            document.write('<br><br><a href="image/spalnya2.jpg" target="_blank"> <img id="img1" width="200px" height="200px" src="image/spalnya2.jpg"></a>')
         </script>
         
     </div>
     <script>
+        const image = document.getElementById('img1');
+        const text = document.querySelector('#contentList');
+        image.onmousedown = function(event) {
+        let shiftX = event.clientX - image.getBoundingClientRect().left;
+        let shiftY = event.clientY - image.getBoundingClientRect().top;
+        image.style.position = 'absolute';
+        image.style.zIndex = 1;
+        document.body.append(image);
+        moveAt(event.pageX, event.pageY);
+
+        function moveAt(pageX, pageY) {
+          
+          image.style.left = pageX - shiftX + 'px';
+          image.style.top = pageY - shiftY + 'px';
+        }
+
+        function onMouseMove(event) {
+          moveAt(event.pageX, event.pageY);
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+
+        image.onmouseup = function(e) {
+          const textRect = text.getBoundingClientRect();
+          document.body.removeChild(document.body.lastChild);
+        //   console.log(textRect.left,textRect.right,textRect.top, textRect.bottom);
+        //   console.log([e.clientX,e.clientY]);
+         
+          if((e.clientX > textRect.left &&
+            e.clientX < textRect.right) &&
+            (e.clientY > textRect.top &&
+            e.clientY < textRect.bottom)){
+
+              const element = document.elementFromPoint(e.clientX, e.clientY);
+              console.log(element);
+              image.style.position = 'static';
+              image.style.float = 'left';
+              element.after(image);
+            
+          }
+          else
+          {
+            image.style.position = 'static';
+            text.after(image);
+          }
+          
+          document.removeEventListener('mousemove', onMouseMove);
+          image.onmouseup = null;
+        };
+
+      };
+      
+      image.ondragstart = function() {
+          return false; 
+      };
+
+
+
+
+
+
         let caption = document.createElement('b'),
             b = document.getElementById('caption'),
             removeElem = document.querySelectorAll('.remove'),
@@ -60,7 +121,7 @@
             newdt2 = document.createElement('dt'),
             newdd1 = document.createElement('dd'),
             newdd2 = document.createElement('dd'),
-            text = document.createTextNode('Приклад спальної кімнати');
+            
         
         newdt1.textContent = 'Полиці';
         newdd1.textContent = 'Вони дозволяють організувати простір і зберігати різні предмети, включаючи книги, декоративні елементи, посуд, іграшки та інше.1';
@@ -70,8 +131,6 @@
         contentList.prepend(newdt1);
         contentList.append(newdt2);
         contentList.append(newdd2);
-        dl.after(text);
-
         caption.textContent = 'Меблі для зберігання речей';
         b.replaceWith(caption);
         

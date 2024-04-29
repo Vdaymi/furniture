@@ -28,7 +28,7 @@
             
             <ol id="rating">Рейтинг меблевих фабрик України
                 <div>
-                    <button data-toggle-id="hide-links" class="btn">Приховати</button>
+                    <button data-toggle-id="hide-links">Приховати</button>
                 </div>
                 <div id="hide-links">  
                     <li>Уманська фабрика “Світ Меблів”</li>
@@ -49,7 +49,7 @@
         console.log(e.currentTarget);
         if (target.tagName !='LI')
             return;
-        if(confirm('asdakdjal'))
+        if(confirm('Чи бажаєте ви переглянути більше меблевих фабрик?'))
             window.location.href = 'https://www.taburetka.ua/i36-meblevi-fabryky';
        }});      
        

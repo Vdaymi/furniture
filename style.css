@@ -80,6 +80,9 @@ table img
     width: 200px;
     height: 200px;
 }
+/* p{
+    z-index: 1;
+} */
 ul
 {
     color: #bd3e0f;
@@ -129,7 +132,7 @@ position: absolute;
 #floating-iframe
 {
     width: 50%;
-    float: right;
+    float:right;
     
 }
 

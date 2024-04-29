@@ -33,7 +33,7 @@
               створення ідеального простору для вас.</p>
           <p><b>Кухня</b> – серце будинку, і ми пропонуємо широкий вибір кухонних гарнітурів, обідніх столів, стільців та інших необхідних аксесуарів. 
               Наші меблі поєднують в собі елегантний дизайн і практичність, створюючи ідеальну обстановку для приготування їжі та сімейних обідів.</p>
-          <iframe id="floating-iframe" name = "frame" src="ForTheKitchen.html" ></iframe>    
+          <!-- <iframe id="floating-iframe" name = "frame" src="ForTheKitchen.html" ></iframe>     -->
           <p><b>Дитяча кімната</b> – це місце творчості та розвитку. У нашому каталозі ви знайдете яскраві та функціональні меблі для дітей,
               які враховують потреби вашої малечі. Ліжка, столи, шафи та ігрові зони – ми створюємо простір для щасливого і здорового розвитку вашого малюка.</p>   
           <p id="verdana" onclick="changeColor()">Обирайте якість, стиль і комфорт разом з нашим каталогом меблів. Зробіть свій дім ще затишнішим і 
@@ -41,7 +41,7 @@
           <br>
           
       </div>
-      <table id="furniture-table">
+      <table id="furniture-table" zIndex = '2'>
           <colgroup>
             <col id="col1">
             <col id="col2">
@@ -98,7 +98,7 @@
           </tbody>
           
         </table >
-        <div id="menu">
+        <div id="menu" zIndex = '2'>
           <button class="filterButton" data-filter="Спальня">Спальня</button>
           <button class="filterButton" data-filter="Кухня">Кухня</button>
           <button class="filterButton" data-filter="Дитяча кімната">Дитяча кімната</button>
@@ -107,6 +107,66 @@
         <a id="11" href="https://rozetka.com.ua/ua/mebel/c152458/">Меблі в інтернет-магазині</a>
     </div>
     <script>
+      let table = document.querySelector('#furniture-table');
+      
+      table.addEventListener('mouseover', (e) => {
+        let target = e.target,
+            relatedTarget = e.relatedTarget;
+        if (target.tagName != 'TD'){
+          return;
+        }
+        target.style.backgroundColor = 'rgb(198, 130, 241)';
+        if (relatedTarget.tagName=='TD')
+        relatedTarget.style.backgroundColor = '';
+      });
+
+      table.addEventListener('mouseout', (e) => {
+        let target = e.target,
+            relatedTarget = e.relatedTarget;
+        if (relatedTarget.tagName != 'TD'){
+          return;
+        }
+        relatedTarget.style.fontWeight = 'bold';
+        if (target.tagName=='TD')
+          target.style.fontWeight = '';
+      });
+
+      // function onMouseDown(event){
+      //   const iframe = event.currentTarget;
+      //   let shiftX = event.clientX - iframe.getBoundingClientRect().left;
+      //   let shiftY = event.clientY - iframe.getBoundingClientRect().top;
+      
+      //   iframe.style.position = 'absolute';
+      //   iframe.style.zIndex = 1000;
+      //   document.body.append(iframe);
+
+      //   moveAt(event.pageX, event.pageY);
+            
+      
+      //   function moveAt(pageX,pageY){
+      //     iframe.style.left = pageX - shiftX + 'px';
+      //     iframe.style.top = pageY - shiftY + 'px';
+      //   }
+        
+      //   function onMouseMove(event){
+      //     moveAt(event.pageX, event.pageY);
+      //   }
+
+      //   document.addEventListener('mousemove', onMouseMove);
+
+      //   iframe.onmouseup = function(e){
+      //     document.removeEventListener('mousemove',onMouseMove);
+      //   }
+
+      //   iframe.ondragstart = function(){
+      //     return false;
+      //   }
+      //   iframe1.forEach(iframe => {
+      //     iframe.addEventListener('mousedown', onMouseDown)
+      //   })
+
+        
+      // }
       class FurnitureFilter {
         constructor(table) {
             this._table = table;
@@ -139,20 +199,20 @@
 
 
       
-      let tds = document.querySelectorAll('td');
+      // let tds = document.querySelectorAll('td');
       
-      tds.forEach(elem => {
-      elem.onmouseenter = function(e) {
-      e.target.style.backgroundColor = 'rgb(198, 130, 241)';
-      };
-      elem.onmouseleave = function(e) {
-        e.target.style.backgroundColor = '';
-      }});
+      // tds.forEach(elem => {
+      // elem.onmouseenter = function(e) {
+      // e.target.style.backgroundColor = 'rgb(198, 130, 241)';
+      // };
+      // elem.onmouseleave = function(e) {
+      //   e.target.style.backgroundColor = '';
+      // }});
       
-      changeColor = () => {
-        elem = document.getElementById('verdana');
-        elem.style.color = 'rgb(198, 130, 241)';
-      };
+      // changeColor = () => {
+      //   elem = document.getElementById('verdana');
+      //   elem.style.color = 'rgb(198, 130, 241)';
+      // };
 
 
 
